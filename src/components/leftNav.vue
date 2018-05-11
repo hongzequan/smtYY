@@ -18,8 +18,8 @@ export default {
 
     }
   },
-  methods: {
-    
+  mounted: function() {
+    console.log('leftNav获取左边菜单栏')
   }
 }
 

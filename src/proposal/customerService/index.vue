@@ -307,6 +307,9 @@ export default {
       }]
     }
   },
+  mounted:function(){
+    console.log('客服页面加载完成')
+  },
   methods: {
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
@@ -318,7 +321,13 @@ export default {
       console.log(row);
     },
     onSubmit() {
-
+      this.$post('/mock')
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     },
     renderHeader(createElement, { column, _self }) {
       let label = column.label;
@@ -341,6 +350,7 @@ export default {
 }
 
 </script>
+
 <style scoped>
 .task-list h3 {
   line-height: 40px;

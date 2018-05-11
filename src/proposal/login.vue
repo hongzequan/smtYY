@@ -12,6 +12,19 @@
           <el-button>忘记密码</el-button>
         </el-form-item>
       </el-form>
+      <el-dialog
+        title="登录失败"
+        :visible.sync="centerDialogVisible"
+        :show-close="false"
+        :close-on-press-escape="false"
+        :close-on-click-modal="false"
+        width="30%"
+        center>
+        <span>{{errorMsg}}</span>
+        <span slot="footer" class="dialog-footer">
+            <el-button type="primary" @click="centerDialogVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
     </div>
 </template>
 <script>
@@ -20,16 +33,28 @@ export default {
   data() {
     return {
       form: {
-        name: '',
-        password: '',
-      }
+        name: 'hongzequan',
+        password: '123123',
+      },
+      errorMsg:'',
+      centerDialogVisible: false
     }
   },
   methods: {
     onSubmit() {
-
-      // 跳转内容页
-      this.$router.push({ path: '/home' });
+      let that=this
+      that.$post('/login',that.form)
+      .then(function(response){
+        if(response.flag=='Y'){
+          that.$router.push({ path: '/home' });
+        }else{
+          that.errorMsg=response.data.msg
+          that.centerDialogVisible = true
+        }
+      })
+      .catch(function(error){
+        console.log(error)
+      })
     }
   }
 }

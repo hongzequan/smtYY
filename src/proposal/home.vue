@@ -23,6 +23,9 @@ export default {
     return {
 
     }
+  },
+  mounted: function() {
+    console.log('home页面加载完毕')
   }
 }
 

@@ -20,7 +20,16 @@ app.use('/mock',function(req,res){
 	console.log(req.me)
 	res.send(mockData.table);
 });
-
+// 登录接口
+app.use('/login',function(req,res){
+    // console.log(req.body.name)
+    if(req.body.name=='hongzequan' && req.body.password=='123123'){
+         res.send(mockData.loginY);
+     }else{
+        res.send(mockData.loginN);
+     }
+   
+});
 
 app.listen(3000,function () {
     console.log('server');
