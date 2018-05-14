@@ -15,29 +15,29 @@
       </el-form-item>
       <el-form-item label="用户版本:">
         <el-select v-model="formInline.userType" placeholder="请选择用户版本">
-          <el-option label="全部" value="全部"></el-option>
-          <el-option label="试用期用户" value="试用期用户"></el-option>
+          <el-option label="全部" value="0"></el-option>
+          <el-option label="试用期用户" value="1"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="领取状态:">
         <el-select v-model="formInline.userState" placeholder="请选择领取状态">
-          <el-option label="全部" value="全部"></el-option>
-          <el-option label="试用期用户" value="试用期用户"></el-option>
+          <el-option label="全部" value="0"></el-option>
+          <el-option label="试用期用户" value="1"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="服务状态:">
         <el-select v-model="formInline.serverState" placeholder="请选择服务状态">
-          <el-option label="全部" value="全部"></el-option>
-          <el-option label="试用期用户" value="试用期用户"></el-option>
+          <el-option label="全部" value="0"></el-option>
+          <el-option label="试用期用户" value="1"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit">查询</el-button>
+        <el-button type="primary" @click="getList">查询</el-button>
       </el-form-item>
     </el-form>
     <div class="task-list">
       <h3>任务列表</h3>
-      <el-table :data="tableData" border style="width: 100%" height="300" size="mini">
+      <el-table :data="tableData" border style="width: 100%" size="mini">
         <el-table-column fixed prop="userName" label="用户名称" width="150">
         </el-table-column>
         <el-table-column prop="uid" label="UID" width="120">
@@ -90,225 +90,16 @@ export default {
         uid: '',
         user: '',
         agent: '',
-        userType: '',
-        userState: '',
-        serverState: '',
+        userType: '0',
+        userState: '0',
+        serverState: '0',
       },
-      tableData: [{
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '已完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '已完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '已完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }, {
-        userName: 'hongzequan',
-        uid: '1',
-        companyName: '厦门二五八网络科技集团股份有限公司',
-        agent: '258',
-        userType: '试用期',
-        registerTime: '2018-05-08',
-        lastLoginTime: '2018-05-08',
-        distributionTime: '2018-05-08',
-        registerTime: '2018-05-08',
-        receiveTime: '2018-05-08',
-        operationTime: '2018-05-08',
-        serverState: '未完成',
-        serverTime: '2018-05-08',
-      }]
+      tableData:[]
     }
   },
   mounted:function(){
     console.log('客服页面加载完成')
+    this.getList()
   },
   methods: {
     handleSizeChange(val) {
@@ -320,15 +111,20 @@ export default {
     handleClick(row) {
       console.log(row);
     },
-    onSubmit() {
-      this.$post('/mock')
+    getList(){
+      let that=this;
+      that.$post('/customer', that.formInline)
         .then(function(response) {
-          console.log(response);
+          if (response.Flag == 'Y') {
+            console.log(response.Data)
+            that.tableData=response.Data
+          } 
         })
         .catch(function(error) {
-          console.log(error);
-        });
+          console.log('error', error)
+        })
     },
+    // 用于处理表格头部多行问题
     renderHeader(createElement, { column, _self }) {
       let label = column.label;
       let labelArr = label.split(' ');

@@ -28,7 +28,9 @@ app.use('/login',function(req,res){
      }else{
         res.send(mockData.loginN);
      }
-   
+});
+app.use('/customer',function(req,res){
+   res.send(mockData.customer);
 });
 
 app.listen(3000,function () {

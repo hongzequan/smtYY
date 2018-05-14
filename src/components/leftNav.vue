@@ -25,8 +25,7 @@ export default {
 
 </script>
 <style>
-  .leftNav{float: left;width: 200px;height: 100%;background: #324057;color: #fff;font-size: 16px;}
-  .leftNav ul{line-height: 40px;}
+  .leftNav ul{line-height: 40px;height: 100%;border-right: 1px solid red;}
   .leftNav ul p{padding:0 15px;}
   .leftNav ul li{}
   .leftNav ul li a{display: block;padding: 0 15px;color: #fff;}

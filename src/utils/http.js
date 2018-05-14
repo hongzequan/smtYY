@@ -15,39 +15,24 @@ axios.defaults.baseURL = axiosBaseUrl
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 
 // //http request 拦截器
-// axios.interceptors.request.use(
-//   config => {
-//     // const token = getCookie('名称');注意使用的时候需要引入cookie方法，推荐js-cookie
-//     config.data = JSON.stringify(config.data);
-//     config.headers = {
-//       'Content-Type':'application/x-www-form-urlencoded'
-//     }
-//     // if(token){
-//     //   config.params = {'token':token}
-//     // }
-//     return config;
-//   },
-//   error => {
-//     return Promise.reject(err);
-//   }
-// );
-
+axios.interceptors.request.use(
+  config => {
+    return config;
+  },
+  error => {
+    return Promise.reject(err);
+  }
+);
 
 // //http response 拦截器
-// axios.interceptors.response.use(
-//   response => {
-//     if(response.data.errCode ==2){
-//       router.push({
-//         path:"/login",
-//         querry:{redirect:router.currentRoute.fullPath}//从哪个页面跳转
-//       })
-//     }
-//     return response;
-//   },
-//   error => {
-//     return Promise.reject(error)
-//   }
-// )
+axios.interceptors.response.use(
+  response => {
+    return response;
+  },
+  error => {
+    return Promise.reject(error)
+  }
+)
 
 
 /**

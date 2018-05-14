@@ -1,4 +1,4 @@
-# smtyy
+# 速贸通运营系统
 
 > A Vue.js project
 
