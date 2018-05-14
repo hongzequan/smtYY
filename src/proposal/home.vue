@@ -1,8 +1,8 @@
 <template>
   <div class="wrap">
-    <Header></Header>
+    <Header  @change="change"></Header>
     <div class="panel-center">
-      <LeftNav></LeftNav>
+      <LeftNav :isClick="isClick"></LeftNav>
       <div class="panel-body">
         <router-view></router-view>
       </div>
@@ -21,12 +21,20 @@ export default {
   },
   data() {
     return {
-
+       // 左边菜单栏是否缩进
+       isClick: 'false'
     }
   },
   mounted: function() {
-    console.log('home页面加载完毕')
+    console.log('home页面加载完毕');
+  },
+  methods: {
+     // 用于接收头部按钮的点击事件
+     change(data) {
+        this.isClick = data;
+     }
   }
+
 }
 
 </script>
