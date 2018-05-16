@@ -21,13 +21,14 @@ app.use('/mock',function(req,res){
 	res.send(mockData.table);
 });
 // 登录接口
-app.use('/login',function(req,res){
+app.use('/Public/checkLogin',function(req,res){
+    // console.log(req.body)
     // console.log(req.body.name)
-    if(req.body.name=='hongzequan' && req.body.password=='123123'){
+    // if(req.body.name=='hongzequan' && req.body.password=='123123'){
          res.send(mockData.loginY);
-     }else{
-        res.send(mockData.loginN);
-     }
+    //  }else{
+    //     res.send(mockData.loginN);
+    //  }
 });
 app.use('/customer',function(req,res){
    res.send(mockData.customer);

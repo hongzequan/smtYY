@@ -4,19 +4,19 @@
     <div class="form-view" ref="Form">
       <el-form :inline="true" :model="formInline" class="demo-form-inline" size="mini">
         <el-form-item label="">
-          <el-input v-model="formInline.companyName" placeholder="公司名查询"></el-input>
+          <el-input v-model="formInline.company_name" placeholder="公司名查询"></el-input>
         </el-form-item>
         <el-form-item label="">
           <el-input v-model="formInline.uid" placeholder="UID查询"></el-input>
         </el-form-item>
         <el-form-item label="">
-          <el-input v-model="formInline.user" placeholder="用户名查询"></el-input>
+          <el-input v-model="formInline.username" placeholder="用户名查询"></el-input>
         </el-form-item>
         <el-form-item label="">
           <el-input v-model="formInline.agent" placeholder="代理商名称查询"></el-input>
         </el-form-item>
         <el-form-item label="用户版本">
-          <el-select v-model="formInline.userType" placeholder="请选择">
+          <el-select v-model="formInline.version_type" placeholder="请选择">
             <el-option label="全部" value="0"></el-option>
             <el-option label="试用期用户" value="1"></el-option>
           </el-select>
@@ -54,32 +54,32 @@
         </el-table-column>
         <el-table-column prop="registerTime" label="注册时间 最后登录时间" width="150" :render-header="renderHeader" align="center">
           <template slot-scope="scope">
-           <!-- 随便你自定义，通过（scope.row）拿到当前行数据-->
-           <p>{{scope.row.registerTime}}</p>
-           <p>{{scope.row.lastLoginTime}}</p>
+            <!-- 随便你自定义，通过（scope.row）拿到当前行数据-->
+            <p>{{scope.row.registerTime}}</p>
+            <p>{{scope.row.lastLoginTime}}</p>
           </template>
         </el-table-column>
         <el-table-column prop="distributionTime" label="分配时间" width="120" align="center">
         </el-table-column>
         <el-table-column prop="receiveType" label="领取状态/操作时间" width="200" align="center">
-            <template slot-scope="scope">
-             <!-- 随便你自定义，通过（scope.row）拿到当前行数据-->
-             {{scope.row.receiveType}}<em>/</em><span class="gray">{{scope.row.operationTime}}</span>
+          <template slot-scope="scope">
+            <!-- 随便你自定义，通过（scope.row）拿到当前行数据-->
+            {{scope.row.receiveType}}<em>/</em><span class="gray">{{scope.row.operationTime}}</span>
           </template>
         </el-table-column>
         <el-table-column prop="serverState" label="服务状态/操作时间" width="300" align="center">
-              <template slot-scope="scope">
-             <!-- 随便你自定义，通过（scope.row）拿到当前行数据-->
+          <template slot-scope="scope">
+            <!-- 随便你自定义，通过（scope.row）拿到当前行数据-->
             <div style="display: inline-block;width: 150px;">
               {{scope.row.serverState}}<em>/</em><span class="gray">{{scope.row.serverTime}}</span>
             </div>
-             <el-button type="primary" size="mini" ><i class="iconfont icon-yonghu"></i>查看进度</el-button>
+            <el-button type="primary" size="mini"><i class="iconfont icon-yonghu"></i>查看进度</el-button>
           </template>
         </el-table-column>
         <el-table-column fixed="right" label="操作" width="150" align="center">
           <template slot-scope="scope">
-            <el-button type="success" class="el-button--normal" icon="iconfont icon-yonghu" titile="登录"  size="mini"></el-button>
-            <el-button type="warning" class="el-button--normal" icon="iconfont icon-yonghu" title="修改密码"  size="mini"></el-button>
+            <el-button type="success" class="el-button--normal" icon="iconfont icon-yonghu" titile="登录" size="mini"></el-button>
+            <el-button type="warning" class="el-button--normal" icon="iconfont icon-yonghu" title="修改密码" size="mini"></el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -90,6 +90,7 @@
 </template>
 <script>
 import crumb from '../../components/crumb'
+import axios from 'axios';
 export default {
   components: {
     'Crumb': crumb,
@@ -98,23 +99,26 @@ export default {
     return {
       tableHeight: 0,
       formInline: {
-        companyName: '',
-        uid: '',
-        user: '',
+        company_name: '', //公司名
+        uid: '', //uid
+        username: '', //用户名
         agent: '',
-        userType: '0',
+        version_type: '', //用户版本
         userState: '0',
         serverState: '0',
+        // page：'1', 
+        // limit:'20'
       },
       tableData: []
     }
   },
-  created: function () {
-   
+  created: function() {
+
   },
   mounted: function() {
     console.log('客服页面加载完成')
-    this.getList();
+    // this.getList();
+    this.getList2();
   },
   methods: {
     handleSizeChange(val) {
@@ -126,10 +130,20 @@ export default {
     handleClick(row) {
       console.log(row);
     },
+    getList2() {
+      axios.post('/api/aaa')
+        .then(response => {
+          console.log(response)
+        }, err => {
+          console.log(err)
+          reject(err)
+        })
+    },
     getList() {
       let that = this;
-      that.$post('/customer', that.formInline)
+      that.$post('/api/UserInfo/userInfoList', that.formInline)
         .then(function(response) {
+          console.log(response)
           if (response.Flag == 'Y') {
             console.log(response.Data)
             that.tableData = response.Data

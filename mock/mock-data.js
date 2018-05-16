@@ -1,17 +1,15 @@
 module.exports = {
   loginY: {
-    Flag: 'Y'
+    "s": '1',
+    "msg": "登录成功"
   },
   loginN: {
-    Flag: 'N',
-    Data: {
-      msg: "用户名或密码不正确！"
-    }
+    "s": '-1',
+    "msg": "登录失败"
   },
   customer: {
     Flag: 'Y',
-    Data: [
-      {
+    Data: [{
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -24,7 +22,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -37,7 +35,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -50,7 +48,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -63,7 +61,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -76,7 +74,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -89,7 +87,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -102,7 +100,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -115,7 +113,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -128,7 +126,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -141,7 +139,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -154,7 +152,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -167,7 +165,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -180,7 +178,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -193,7 +191,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -206,7 +204,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -219,7 +217,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -232,7 +230,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -245,7 +243,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',
@@ -258,7 +256,7 @@ module.exports = {
         operationTime: '2018-05-08',
         serverState: '已完成',
         serverTime: '2018-05-08',
-      },{
+      }, {
         userName: 'hongzequan',
         uid: '1',
         companyName: '厦门二五八网络科技集团股份有限公司',

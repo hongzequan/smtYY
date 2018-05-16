@@ -2,7 +2,7 @@
   <div class="login-page">
     <el-form ref="form" :model="form" class="login-window" label-width='80px'>
       <el-form-item label="用户名：">
-        <el-input v-model="form.name"></el-input>
+        <el-input v-model="form.username"></el-input>
       </el-form-item>
       <el-form-item label="密码：">
         <el-input v-model="form.password"></el-input>
@@ -25,9 +25,13 @@ export default {
   name: 'login',
   data() {
     return {
+      // form: {
+      //   name: 'hongzequan',
+      //   password: '123123',
+      // },
       form: {
-        name: 'hongzequan',
-        password: '123123',
+        username: 'qianduan',
+        password: '113322',
       },
       errorMsg: '',
       centerDialogVisible: false
@@ -36,12 +40,14 @@ export default {
   methods: {
     onSubmit() {
       let that = this
-      that.$post('/login', that.form)
+      let url='Public/checkLogin?'+'username='+that.form.username+'&password='+that.form.password
+      //需要注意这里用的是post还是get
+      that.$fetch(url)
         .then(function(response) {
-          if (response.Flag == 'Y') {
+          if (response.s == '1') {
             that.$router.push({ path: '/home' });
           } else {
-            that.errorMsg = response.data.msg
+            that.errorMsg = response.msg
             that.centerDialogVisible = true
           }
         })
@@ -78,5 +84,4 @@ export default {
 .login-window .el-form-item__label {
   color: #fff;
 }
-
 </style>
