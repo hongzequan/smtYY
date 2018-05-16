@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <div class="header">
     <h1 class="fl logo">
       <img src="../assets/images/logo.png" alt="logo">
     </h1>
@@ -20,55 +20,23 @@
         </el-dropdown>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 <script>
 export default {
   name: 'Header',
   data() {
     return {
-
+      indent:false
     }
   },
   methods: {
     toggleNav() {
-       this.$emit('change','true'); //Hub触发事件
+       this.indent=!this.indent
+       console.log(this.indent)
+       this.$emit('change', this.indent); //Hub触发事件
     }
   }
 }
 
 </script>
-<style scoped>
-header {
-  position: relative;
-  height: 60px;
-  background: #fff;
-  z-index: 1;
-  border-bottom: 1px solid #72a8fe;
-}
-
-header .logo {
-  width: 215px;
-  height: 60px;
-  line-height: 60px;
-  text-align: center;
-  background: #72a8fe;
-}
-
-header .logo img {
-  vertical-align: middle;
-}
-
-header .right-box {
-  overflow: hidden;
-  background: #fff;
-  line-height: 30px;
-  height: 60px;
-  padding: 15px;
-  border-bottom: 1px solid #72a8fe;
-}
-.header .exit i{color: #738db3;}
-
-header .sliderMenu i{color: #72a8fe;font-size: 30px;cursor: pointer;}
-
-</style>
